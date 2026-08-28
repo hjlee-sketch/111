@@ -14,14 +14,15 @@
     --ink:#2B2820;
     --ink-soft:#635C4C;
     --line:#E4DCC8;
-    --friend:#2a6fb8; --friend-bg:#E7F0FA;
-    --self:#c05a2c; --self-bg:#FBEAE1;
-    --teacher:#1f7a5c; --teacher-bg:#E5F3EC;
-    --senior:#a8790a; --senior-bg:#FBF0DA;
-    --t1:#6e56b3; --t1-bg:#EDE9F9;
-    --t2:#b9790f; --t2-bg:#FAF0DA;
-    --t3:#c14a76; --t3-bg:#FBEAF1;
-    --t4:#2f6b63; --t4-bg:#E7F3F0;
+    /* 밝은 색 = 도넛·범례 점·카드 상단 테이프 / -ink = 배지 글자(가독성) */
+    --friend:#3B8EF0; --friend-ink:#1C63BE; --friend-bg:#E6F1FF;
+    --self:#F97B45;   --self-ink:#C9531F;   --self-bg:#FFEBE1;
+    --teacher:#17BE87; --teacher-ink:#0A8A5F; --teacher-bg:#DFF8EE;
+    --senior:#FBB024; --senior-ink:#A87004; --senior-bg:#FFF3DA;
+    --t1:#9B6BF7; --t1-ink:#6B39D6; --t1-bg:#F0E8FF;
+    --t2:#F5AE1B; --t2-ink:#A87200; --t2-bg:#FFF4DA;
+    --t3:#F45FA6; --t3-ink:#C41F70; --t3-bg:#FFE8F3;
+    --t4:#16B8C9; --t4-ink:#087C8C; --t4-bg:#DEF6F9;
     --best:#a8791f; --best-bg:#F8EFD9; --best-line:#E5CF9C;
   }
   *{box-sizing:border-box;}
@@ -58,9 +59,11 @@
   .donut-center .num{font-family:'Gowun Batang', serif; font-size:26px; font-weight:700;}
   .donut-center .lbl{font-size:10.5px; color:var(--ink-soft); margin-top:2px;}
   .legend{display:flex; flex-direction:column; gap:7px; text-align:left;}
-  .legend-row{display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--ink-soft);}
+  .legend-row{display:flex; align-items:center; gap:5px; font-size:12.5px; color:var(--ink-soft);}
+  .legend-row .legend-dot{margin-right:3px;}
   .legend-dot{width:9px; height:9px; border-radius:50%; flex-shrink:0;}
-  .legend-row .lv{margin-left:auto; color:var(--ink); font-weight:500;}
+  .legend-row .cnt{color:var(--ink); font-weight:500;}
+  .legend-row .lv{margin-left:auto; color:var(--ink-soft); font-variant-numeric:tabular-nums;}
 
   .mode-toggle{display:flex; justify-content:center; gap:8px; margin:8px 0 18px; flex-wrap:wrap;}
   .mode-btn{font-size:14px; font-weight:500; padding:9px 20px; border-radius:999px; border:1px solid var(--line); background:var(--paper-card); color:var(--ink-soft); cursor:pointer; font-family:inherit;}
@@ -85,23 +88,27 @@
   .card-top{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; flex-wrap:wrap; gap:6px;}
   .badges{display:flex; gap:6px; flex-wrap:wrap;}
   .badge{font-size:11px; font-weight:500; padding:3px 9px; border-radius:999px; white-space:nowrap;}
-  .card.friend .badge.target{color:var(--friend); background:var(--friend-bg);}
-  .card.self .badge.target{color:var(--self); background:var(--self-bg);}
-  .card.teacher .badge.target{color:var(--teacher); background:var(--teacher-bg);}
-  .card.senior .badge.target{color:var(--senior); background:var(--senior-bg);}
-  .badge.theme.t1{color:var(--t1); background:var(--t1-bg);}
-  .badge.theme.t2{color:var(--t2); background:var(--t2-bg);}
-  .badge.theme.t3{color:var(--t3); background:var(--t3-bg);}
-  .badge.theme.t4{color:var(--t4); background:var(--t4-bg);}
+  .card.friend .badge.target{color:var(--friend-ink); background:var(--friend-bg);}
+  .card.self .badge.target{color:var(--self-ink); background:var(--self-bg);}
+  .card.teacher .badge.target{color:var(--teacher-ink); background:var(--teacher-bg);}
+  .card.senior .badge.target{color:var(--senior-ink); background:var(--senior-bg);}
+  .badge.theme.t1{color:var(--t1-ink); background:var(--t1-bg);}
+  .badge.theme.t2{color:var(--t2-ink); background:var(--t2-bg);}
+  .badge.theme.t3{color:var(--t3-ink); background:var(--t3-bg);}
+  .badge.theme.t4{color:var(--t4-ink); background:var(--t4-bg);}
   .badge.best{color:var(--best); background:var(--best-bg); border:1px solid var(--best-line);}
   .num-tag{font-size:11.5px; color:var(--ink-soft); flex-shrink:0;}
 
   .msg{font-size:14.5px; margin:0; color:var(--ink); white-space:pre-line;}
-  .msg-wrap{position:relative; margin:0 0 14px;}
-  .msg-wrap.clamped .msg{display:-webkit-box; -webkit-line-clamp:8; -webkit-box-orient:vertical; overflow:hidden;}
-  .msg-wrap.clamped::after{content:""; position:absolute; left:0; right:0; bottom:0; height:36px; pointer-events:none; background:linear-gradient(to bottom, rgba(255,253,248,0), var(--paper-card) 85%);}
-  .card.is-best .msg-wrap.clamped::after{background:linear-gradient(to bottom, rgba(255,253,248,0), var(--paper-card) 85%);}
+  .clampable{position:relative;}
+  .msg-wrap{margin:0 0 14px;}
+  .wish-wrap{margin:0;}
+  .clampable.clamped > p{display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden;}
+  .msg-wrap.clamped .msg{-webkit-line-clamp:8;}
+  .wish-wrap.clamped .wish{-webkit-line-clamp:3;}
+  .clampable.clamped::after{content:""; position:absolute; left:0; right:0; bottom:0; height:34px; pointer-events:none; background:linear-gradient(to bottom, rgba(255,253,248,0), var(--paper-card) 85%);}
   .more-btn{display:inline-flex; align-items:center; gap:4px; font-family:inherit; font-size:12.5px; color:var(--ink-soft); background:none; border:none; border-bottom:1px solid var(--line); padding:0 0 1px; margin:-6px 0 12px; cursor:pointer;}
+  .more-btn.wish-more{margin:8px 0 0;}
   .more-btn:hover{color:var(--ink); border-bottom-color:var(--ink-soft);}
   .more-btn:focus-visible{outline:2px solid var(--ink); outline-offset:3px;}
   .more-btn[hidden]{display:none;}
@@ -335,7 +342,7 @@ function renderDonut(field, labels, colors, donutId, numId, legendId){
   document.getElementById(donutId).style.background = `conic-gradient(${stops.join(', ')})`;
   document.getElementById(numId).textContent = keys.length;
   document.getElementById(legendId).innerHTML = keys.map(o => `
-    <div class="legend-row"><span class="legend-dot" style="background:${colors[o.k]};"></span>${labels[o.k]}<span class="lv">${o.n} · ${Math.round(o.n/total*100)}%</span></div>
+    <div class="legend-row"><span class="legend-dot" style="background:${colors[o.k]};"></span>${labels[o.k]}<span class="cnt">(${o.n})</span><span class="lv">${Math.round(o.n/total*100)}%</span></div>
   `).join('');
 }
 
@@ -355,7 +362,10 @@ function renderFilters(){
 
 /* ── 카드 ── */
 function cardHtml(d, isBest){
-  const wishHtml = d.wish && d.wish.trim() ? `<p class="wish">${d.wish}</p>` : '';
+  const wishHtml = d.wish && d.wish.trim()
+    ? `<div class="wish-wrap clampable"><p class="wish">${d.wish}</p></div>
+       <button class="more-btn wish-more" type="button" aria-expanded="false" hidden>더보기 <span class="arw">▾</span></button>`
+    : '';
   const reasonHtml = isBest && d.reason ? `<p class="best-note">${d.reason}</p>` : '';
   const bestBadge = isBest ? `<span class="badge best">베스트</span>` : '';
   return `
@@ -368,7 +378,7 @@ function cardHtml(d, isBest){
       <span class="num-tag">No.${d.id}</span>
     </div>
     ${reasonHtml}
-    <div class="msg-wrap"><p class="msg">${d.msg}</p></div>
+    <div class="msg-wrap clampable"><p class="msg">${d.msg}</p></div>
     <button class="more-btn" type="button" aria-expanded="false" hidden>더보기 <span class="arw">▾</span></button>
     ${wishHtml}
   `;
@@ -403,14 +413,13 @@ function renderGrid(){
   applyClamp();
 }
 
-/* ── 긴 사연은 8줄까지만 보여주고 '더보기'로 펼치기 ── */
+/* ── 사연은 8줄, 응원 한마디는 3줄까지만 보여주고 '더보기'로 펼치기 ── */
 function applyClamp(){
-  grid.querySelectorAll('.card').forEach(card => {
-    const wrap = card.querySelector('.msg-wrap');
-    const btn = card.querySelector('.more-btn');
-    if(!wrap || !btn || wrap.dataset.expanded === 'true') return;
+  grid.querySelectorAll('.clampable').forEach(wrap => {
+    const btn = wrap.nextElementSibling;
+    if(!btn || !btn.classList.contains('more-btn') || wrap.dataset.expanded === 'true') return;
     wrap.classList.add('clamped');
-    const p = wrap.querySelector('.msg');
+    const p = wrap.firstElementChild;
     const overflows = p.scrollHeight > p.clientHeight + 2;
     if(overflows){
       btn.hidden = false;
