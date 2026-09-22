@@ -3,60 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>따뜻한 고백 — 비폭력 캠페인 결과</title>
+<title>학교폭력제로@광운 — 따뜻한 고백 캠페인</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&family=Jua&family=Gaegu:wght@400;700&family=Gamja+Flower&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F7F3EA;
-    --paper-card:#FFFDF8;
-    --ink:#2B2820;
-    --ink-soft:#635C4C;
-    --line:#E4DCC8;
-    /* 밝은 색 = 도넛·범례 점·카드 상단 테이프 / -ink = 배지 글자(가독성) */
-    --friend:#3B8EF0; --friend-ink:#1C63BE; --friend-bg:#E6F1FF;
-    --self:#F97B45;   --self-ink:#C9531F;   --self-bg:#FFEBE1;
-    --teacher:#17BE87; --teacher-ink:#0A8A5F; --teacher-bg:#DFF8EE;
-    --senior:#FBB024; --senior-ink:#A87004; --senior-bg:#FFF3DA;
-    --t1:#9B6BF7; --t1-ink:#6B39D6; --t1-bg:#F0E8FF;
-    --t2:#F5AE1B; --t2-ink:#A87200; --t2-bg:#FFF4DA;
-    --t3:#F45FA6; --t3-ink:#C41F70; --t3-bg:#FFE8F3;
-    --t4:#16B8C9; --t4-ink:#087C8C; --t4-bg:#DEF6F9;
-    --best:#a8791f; --best-bg:#F8EFD9; --best-line:#E5CF9C;
+    --paper:#FDF3F0;
+    --paper-card:#FFFEFC;
+    --ink:#3E2E30;
+    --ink-soft:#8C7478;
+    --line:#F5DEE1;
+    --rose:#E8577A;
+    --rose-ink:#B23A57;
+    --rose-bg:#FDE7EC;
+    --rose-line:#F6C6D1;
+    /* 카테고리 색상 — 참고 디자인의 브라운·로즈·골드 팔레트 */
+    --friend:#A9764B; --friend-ink:#7A4F22; --friend-bg:#F5E9D9;
+    --self:#E8577A;   --self-ink:#B23A57;   --self-bg:#FDE7EC;
+    --teacher:#D9A441; --teacher-ink:#96690A; --teacher-bg:#FBF0D9;
+    --senior:#C77B9E; --senior-ink:#9A4C71; --senior-bg:#F9E9F0;
+    --t1:#8C6FAE; --t1-ink:#5E4485; --t1-bg:#EFEAF8;
+    --t2:#D9A441; --t2-ink:#96690A; --t2-bg:#FBF0D9;
+    --t3:#E8935A; --t3-ink:#B15F27; --t3-bg:#FCEEE0;
+    --t4:#6E9C8C; --t4-ink:#3F6C5D; --t4-bg:#E7F1EC;
+    --best:#E8577A; --best-bg:#FDE7EC; --best-line:#F6C6D1;
   }
   *{box-sizing:border-box;}
-  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Noto Sans KR', sans-serif; line-height:1.7;}
+  body{margin:0;
+    background:
+      radial-gradient(480px 320px at 8% -6%, rgba(217,164,65,.10), transparent 60%),
+      radial-gradient(520px 340px at 96% 2%, rgba(232,87,122,.10), transparent 60%),
+      radial-gradient(600px 420px at 50% 115%, rgba(169,118,75,.08), transparent 60%),
+      var(--paper);
+    color:var(--ink); font-family:'Noto Sans KR', sans-serif; line-height:1.7;}
   .wrap{max-width:1120px; margin:0 auto; padding:48px 24px 80px;}
 
   @keyframes riseIn{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
   .rise{animation:riseIn .5s ease both;}
   @media (prefers-reduced-motion:reduce){.rise{animation:none;}}
 
-  header.hero{text-align:center; margin-bottom:8px;}
-  .eyebrow{display:inline-block; font-size:13px; letter-spacing:0.08em; color:var(--ink-soft); border:1px solid var(--line); border-radius:999px; padding:4px 14px; margin-bottom:18px; background:var(--paper-card);}
-  h1{font-family:'Gowun Batang', serif; font-weight:700; font-size:44px; margin:0 0 12px;}
+  header.hero{text-align:center; margin-bottom:8px; position:relative;}
+  header.hero::before, header.hero::after{content:""; position:absolute; width:24px; height:24px; border-radius:6px; opacity:.5; pointer-events:none;}
+  header.hero::before{top:-8px; left:16%; background:var(--t1); transform:rotate(20deg);}
+  header.hero::after{top:-4px; right:16%; background:var(--teacher); transform:rotate(-16deg);}
+  .eyebrow{display:inline-block; font-size:13px; letter-spacing:0.08em; color:var(--rose-ink); border:1px solid var(--rose-line); border-radius:999px; padding:4px 14px; margin-bottom:18px; background:var(--rose-bg);}
+  h1{font-family:'Jua', 'Gowun Batang', serif; font-weight:400; font-size:40px; margin:0 0 12px; color:var(--ink); letter-spacing:-0.01em; line-height:1.3;}
+  h1 .title-accent{color:var(--rose);}
   header.hero p{color:var(--ink-soft); font-size:15px; margin:0 0 18px;}
 
-  .rule{width:120px; height:1px; margin:0 auto 40px; background:linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent); position:relative;}
-  .rule::after{content:"❦"; position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:var(--paper); padding:0 10px; color:var(--line); font-size:14px;}
+  .rule{width:120px; height:1px; margin:0 auto 40px; background:linear-gradient(90deg, transparent, var(--rose-line) 20%, var(--rose-line) 80%, transparent); position:relative;}
+  .rule::after{content:"♡"; position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:var(--paper); padding:0 10px; color:var(--rose); font-size:13px;}
 
-  .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:0 0 44px;}
-  .stat{background:var(--paper-card); border:1px solid var(--line); border-radius:10px; padding:16px 10px; text-align:center;}
-  .stat .num{font-family:'Gowun Batang', serif; font-size:26px; font-weight:700;}
+  .stats{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:0 0 44px; max-width:560px; margin-left:auto; margin-right:auto;}
+  .stat{background:var(--paper-card); border:1px solid var(--line); border-radius:14px; padding:16px 10px; text-align:center;}
+  .stat .num{font-family:'Jua', sans-serif; font-size:28px; color:var(--ink);}
   .stat .label{font-size:12.5px; color:var(--ink-soft); margin-top:2px;}
   .stat.best-stat{border-color:var(--best-line); background:var(--best-bg);}
   .stat.best-stat .num{color:var(--best);}
 
-  .section-title{font-family:'Gowun Batang', serif; font-size:19px; margin:0 0 16px; text-align:center;}
+  .section-title{font-family:'Jua', sans-serif; font-size:19px; margin:0 0 16px; text-align:center; color:var(--ink);}
 
   .donut-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin:0 auto 48px; max-width:720px;}
-  .donut-card{background:var(--paper-card); border:1px solid var(--line); border-radius:14px; padding:24px 20px 20px; text-align:center;}
-  .donut-card h3{font-family:'Gowun Batang', serif; font-size:15.5px; margin:0 0 18px; color:var(--ink);}
+  .donut-card{background:var(--paper-card); border:1px solid var(--line); border-radius:18px; padding:24px 20px 20px; text-align:center;}
+  .donut-card h3{font-family:'Jua', sans-serif; font-weight:400; font-size:16px; margin:0 0 18px; color:var(--ink);}
   .donut{width:168px; height:168px; border-radius:50%; margin:0 auto 18px; position:relative;}
   .donut::after{content:""; position:absolute; inset:26px; background:var(--paper-card); border-radius:50%;}
   .donut-center{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;}
-  .donut-center .num{font-family:'Gowun Batang', serif; font-size:26px; font-weight:700;}
+  .donut-center .num{font-family:'Jua', sans-serif; font-size:27px; color:var(--rose);}
   .donut-center .lbl{font-size:10.5px; color:var(--ink-soft); margin-top:2px;}
   .legend{display:flex; flex-direction:column; gap:7px; text-align:left;}
   .legend-row{display:flex; align-items:center; gap:5px; font-size:12.5px; color:var(--ink-soft);}
@@ -67,23 +81,35 @@
 
   .mode-toggle{display:flex; justify-content:center; gap:8px; margin:8px 0 18px; flex-wrap:wrap;}
   .mode-btn{font-size:14px; font-weight:500; padding:9px 20px; border-radius:999px; border:1px solid var(--line); background:var(--paper-card); color:var(--ink-soft); cursor:pointer; font-family:inherit;}
-  .mode-btn:focus-visible, .chip:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
-  .mode-btn.active{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+  .mode-btn:focus-visible, .chip:focus-visible{outline:2px solid var(--rose); outline-offset:2px;}
+  .mode-btn.active{background:var(--rose); color:#fff; border-color:var(--rose);}
   .mode-btn[data-mode="best"]{border-color:var(--best-line); color:var(--best); background:var(--best-bg);}
-  .mode-btn[data-mode="best"].active{background:var(--best); color:#FFFDF8; border-color:var(--best);}
+  .mode-btn[data-mode="best"].active{background:var(--best); color:#fff; border-color:var(--best);}
+  .mode-btn[data-mode="random"]{border-color:var(--rose); color:var(--rose); background:#fff;}
+  .mode-btn[data-mode="random"].active{background:var(--rose); color:#fff; border-color:var(--rose);}
+  .random-stage{display:flex; flex-direction:column; align-items:center; gap:18px; margin-bottom:8px;}
+  .random-stage .grid{width:100%; max-width:560px;}
+  .draw-btn{font-family:inherit; font-size:15px; font-weight:700; color:#fff; background:var(--rose); border:none; border-radius:999px; padding:13px 32px; cursor:pointer; box-shadow:0 3px 10px rgba(232,87,122,.28);}
+  .draw-btn:hover{filter:brightness(1.05);}
+  .draw-btn:active{transform:translateY(1px);}
+  @keyframes popIn{from{opacity:0; transform:scale(.96) translateY(8px);} to{opacity:1; transform:scale(1) translateY(0);}}
+  .pop{animation:popIn .35s ease both;}
 
   .filters{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:28px;}
   .filters:empty{margin-bottom:0;}
   .chip{font-size:14px; padding:8px 16px; border-radius:999px; border:1px solid var(--line); background:var(--paper-card); color:var(--ink-soft); cursor:pointer; transition:all .15s ease; font-family:inherit;}
-  .chip:hover{border-color:var(--ink-soft);}
-  .chip.active{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+  .chip:hover{border-color:var(--rose-line); color:var(--rose-ink);}
+  .chip.active{background:var(--rose); color:#fff; border-color:var(--rose);}
 
-  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:18px;}
-  .card{background:var(--paper-card); border:1px solid var(--line); border-radius:4px 4px 12px 12px; padding:18px 18px 16px; position:relative;}
-  .card::before{content:""; position:absolute; top:-6px; left:20px; width:34px; height:12px; background:var(--tag-bg, var(--line)); border-radius:2px; opacity:0.9;}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:20px;}
+  .card{background:var(--paper-card); border:1px solid var(--line); border-radius:4px 16px 16px 16px; padding:18px 18px 16px; position:relative; box-shadow:0 3px 14px rgba(232,87,122,.08); transition:transform .15s ease, box-shadow .15s ease;}
+  .card:nth-child(odd){transform:rotate(-0.5deg);}
+  .card:nth-child(even){transform:rotate(0.5deg);}
+  .card:hover{transform:rotate(0deg); box-shadow:0 6px 20px rgba(232,87,122,.14);}
+  .card::before{content:""; position:absolute; top:-7px; left:20px; width:36px; height:13px; background:var(--tag-bg, var(--line)); border-radius:3px; opacity:0.9; box-shadow:0 1px 2px rgba(0,0,0,.08); transform:rotate(-2deg);}
   .card.friend{--tag-bg:var(--friend);} .card.self{--tag-bg:var(--self);}
   .card.teacher{--tag-bg:var(--teacher);} .card.senior{--tag-bg:var(--senior);}
-  .card.is-best{--tag-bg:var(--best); border-color:var(--best-line); box-shadow:0 3px 16px rgba(168,121,31,.10);}
+  .card.is-best{--tag-bg:var(--best); border-color:var(--best-line); box-shadow:0 4px 18px rgba(232,87,122,.16);}
 
   .card-top{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; flex-wrap:wrap; gap:6px;}
   .badges{display:flex; gap:6px; flex-wrap:wrap;}
@@ -102,51 +128,52 @@
   .msg{font-size:14.5px; margin:0; color:var(--ink); white-space:pre-line;}
   .clampable{position:relative;}
   .msg-wrap{margin:0 0 14px;}
-  .wish-wrap{margin:0; position:relative; padding-top:22px; border-top:1px dashed var(--line);}
+  .wish-wrap{margin:10px 0 0; background:var(--rose-bg); border-radius:4px 14px 14px 14px; padding:12px 14px 10px;}
   .clampable.clamped > p{display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden;}
-  .msg-wrap.clamped .msg{-webkit-line-clamp:4;}
-  .wish-wrap.clamped .wish{-webkit-line-clamp:2;}
-  .clampable.clamped::after{content:""; position:absolute; left:0; right:0; bottom:0; height:34px; pointer-events:none; background:linear-gradient(to bottom, rgba(255,253,248,0), var(--paper-card) 85%);}
-  .wish-label{position:absolute; top:-8px; left:0; background:var(--paper-card); padding-right:8px; font-size:11px; letter-spacing:0.02em; color:var(--ink-soft); opacity:0.85; white-space:nowrap;}
+  .msg-wrap.clamped .msg{-webkit-line-clamp:8;}
+  .wish-wrap.clamped .wish{-webkit-line-clamp:3;}
+  .clampable.clamped::after{content:""; position:absolute; left:0; right:0; bottom:0; height:34px; pointer-events:none; background:linear-gradient(to bottom, rgba(255,254,252,0), var(--paper-card) 85%); border-radius:0 0 12px 12px;}
+  .wish-wrap.clamped::after{background:linear-gradient(to bottom, rgba(253,231,236,0), var(--rose-bg) 85%); border-radius:0 0 12px 12px;}
   .more-btn{display:inline-flex; align-items:center; gap:4px; font-family:inherit; font-size:12.5px; color:var(--ink-soft); background:none; border:none; border-bottom:1px solid var(--line); padding:0 0 1px; margin:-6px 0 12px; cursor:pointer;}
-  .more-btn.wish-more{margin:8px 0 0;}
+  .more-btn.wish-more{margin:6px 0 0 2px; color:var(--rose-ink); border-bottom-color:var(--rose-line);}
   .more-btn:hover{color:var(--ink); border-bottom-color:var(--ink-soft);}
-  .more-btn:focus-visible{outline:2px solid var(--ink); outline-offset:3px;}
+  .more-btn.wish-more:hover{color:var(--rose);}
+  .more-btn:focus-visible{outline:2px solid var(--rose); outline-offset:3px;}
   .more-btn[hidden]{display:none;}
   .more-btn .arw{font-size:10px; line-height:1;}
-  .wish{font-family:'Gowun Batang', serif; font-size:15px; font-style:italic; color:var(--ink-soft); margin:0;}
-  .wish::before{content:"“ "; opacity:0.6;} .wish::after{content:" ”"; opacity:0.6;}
-  .best-note{font-size:12.5px; color:var(--best); background:var(--best-bg); border-radius:8px; padding:8px 10px; margin:0 0 12px;}
+  .wish{font-family:'Noto Sans KR', sans-serif; font-size:14.5px; line-height:1.7; color:var(--ink); margin:0;}
+  .wish-label{display:block; font-size:10.5px; font-weight:500; color:var(--rose-ink); opacity:.75; margin:0 0 4px; letter-spacing:0.01em;}
+  .wish::before{content:"“ "; opacity:0.55; color:var(--rose-ink);} .wish::after{content:" ”"; opacity:0.55; color:var(--rose-ink);}
+  .best-note{font-size:12.5px; color:var(--best); background:var(--best-bg); border:1px solid var(--best-line); border-radius:8px; padding:8px 10px; margin:0 0 12px;}
 
   .count-note{text-align:center; font-size:13px; color:var(--ink-soft); margin-bottom:20px;}
 
-  .empty{grid-column:1/-1; text-align:center; border:1px dashed var(--best-line); border-radius:12px; background:var(--paper-card); padding:36px 24px; color:var(--ink-soft); font-size:14px;}
-  .empty strong{display:block; font-family:'Gowun Batang', serif; font-size:17px; color:var(--ink); margin-bottom:6px;}
+  .empty{grid-column:1/-1; text-align:center; border:1px dashed var(--rose-line); border-radius:16px; background:var(--paper-card); padding:36px 24px; color:var(--ink-soft); font-size:14px;}
+  .empty strong{display:block; font-family:'Jua', sans-serif; font-size:17px; color:var(--ink); margin-bottom:6px;}
   .empty code{background:var(--best-bg); color:var(--best); padding:1px 6px; border-radius:5px; font-size:13px;}
 
   footer{text-align:center; margin-top:56px; font-size:12.5px; color:var(--ink-soft);}
 
   @media (max-width:760px){.donut-grid{grid-template-columns:1fr; max-width:420px;}}
-  @media (max-width:640px){.stats{grid-template-columns:repeat(3,1fr); gap:8px;} .stat{padding:14px 6px;} .stat .num{font-size:22px;} .stat .label{font-size:11.5px;} h1{font-size:32px;} .wrap{padding:32px 16px 60px;}}
+  @media (max-width:640px){.stats{grid-template-columns:repeat(2,1fr); gap:8px;} .stat{padding:14px 6px;} .stat .num{font-size:22px;} .stat .label{font-size:11.5px;} h1{font-size:26px;} .wrap{padding:32px 16px 60px;} header.hero::before, header.hero::after{display:none;}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header class="hero rise">
-    <span class="eyebrow">비폭력 캠페인 결과보드</span>
-    <h1>따뜻한 고백</h1>
+    <span class="eyebrow">학교폭력제로@광운</span>
+    <h1>BTF푸른나무재단 함께하는 <span class="title-accent">'따뜻한 고백'</span> 캠페인</h1>
     <p id="heroSub"></p>
   </header>
   <div class="rule rise" style="animation-delay:.05s;"></div>
 
   <div class="stats rise" style="animation-delay:.08s;">
-    <div class="stat"><div class="num" id="statTotal">–</div><div class="label">전체 사연</div></div>
-    <div class="stat best-stat"><div class="num" id="statBest">–</div><div class="label">베스트 사연</div></div>
-    <div class="stat"><div class="num" id="statTarget">–</div><div class="label">마음을 전한 대상</div></div>
+    <div class="stat"><div class="num">216</div><div class="label">캠페인 참여</div></div>
+    <div class="stat"><div class="num" id="statTotal">–</div><div class="label">사연 공유 동의</div></div>
   </div>
 
-  <p class="section-title rise" style="animation-delay:.1s;">한눈에 보는 분포</p>
+  <p class="section-title rise" style="animation-delay:.1s;">🎀 캠페인 결과 한눈에 보기</p>
   <div class="donut-grid">
 
     <div class="donut-card rise" style="animation-delay:.15s;">
@@ -167,9 +194,9 @@
 
   </div>
 
-  <p class="section-title rise" style="animation-delay:.3s;">사연 둘러보기</p>
+  <p class="section-title rise" style="animation-delay:.3s;">💌 함께 나누고 싶은 따뜻한 고백</p>
   <div class="mode-toggle rise" style="animation-delay:.32s;">
-    <button class="mode-btn" data-mode="best">베스트 사연 보기</button>
+    <button class="mode-btn" data-mode="random">친구 사연 랜덤으로 보기</button>
     <button class="mode-btn" data-mode="target">대상자별로 보기</button>
     <button class="mode-btn" data-mode="theme">주제별로 보기</button>
   </div>
@@ -189,7 +216,7 @@ const TARGET_COLOR = {friend:'var(--friend)', self:'var(--self)', teacher:'var(-
 const THEME_COLOR = {t1:'var(--t1)', t2:'var(--t2)', t3:'var(--t3)', t4:'var(--t4)'};
 
 const data = [
- {id:1, cat:'senior', theme:'t1', msg:'선배님들 안녕하세요 저는 이번에 광운중에 입학한 1학년 학생입니다. 중학교는 처음이라서 아직은 어색하지만 열심히 해보겠습니다. 선배님들도 다 너무 친철하시고 참 좋은 학교같아요! 선배님들 잘부탁드립니다!! 감사합니다', wish:'너 충분히 잘하고 있어 화이팅!!!'},
+ {id:1, cat:'senior', theme:'t1', msg:'선배님들 안녕하세요 저는 이번에 OO중에 입학한 1학년 학생입니다. 중학교는 처음이라서 아직은 어색하지만 열심히 해보겠습니다. 선배님들도 다 너무 친철하시고 참 좋은 학교같아요! 선배님들 잘부탁드립니다!! 감사합니다', wish:'너 충분히 잘하고 있어 화이팅!!!'},
  {id:2, cat:'friend', theme:'t1', msg:'친구들아 부탁인데 욕 좀 그만쓰고 줄이자 또 한명만 따돌리지 말고 두루두루 사이좋게 지내자 그리고 교실에서 싸움 좀 하지 말고 같이 잘 지내보자 애들아 이것만 잘 지켜줘~!', wish:'넌 할수있어'},
  {id:3, cat:'self', theme:'t2', msg:'항상 고생하는 너의 꿈과 미래를 응원하고 앞으로도 남은 인생이 잘되길 바래~~아직 만12살이니까 전반전 12분!!!!!!', wish:'넌 할수있어!!~~'},
  {id:4, cat:'teacher', theme:'t4', msg:'지금까지도, 앞으로도 저희를 더욱 바르게 인도해주시고 사랑을 주시는 선생님들께 감사드리고 우리는 서로 사이좋게 지내겠습니다.', wish:'저에게 따뜻하게 대해주세요.'},
@@ -228,7 +255,7 @@ const data = [
  {id:37, cat:'teacher', theme:'t1', msg:'[작년 담임 선생님께] 선생님, 안녕하세요. 새 학기가 시작되고 나서야 이렇게 인사를 드리게 되어 죄송합니다. 작년 한 해 동안 저희 반을 맡아 주시고 따뜻하게 보살펴 주셔서 정말 감사했습니다. 그때는 미처 표현하지 못했지만, 선생님께서 보여 주신 관심과 격려가 얼마나 큰 힘이 되었는지 새 학기를 시작하며 더 크게 느끼게 됩니다. 선생님 덕분에 한 뼘 더 성장할 수 있었습니다. 비록 이제는 다른 반이 되었지만, 선생님께 배운 것들을 잊지 않고 올해도 열심히 하겠습니다. 항상 건강하시고 행복하세요! 감사합니다.\n[새 담임 선생님께] 선생님, 안녕하세요. 올해 저희 반을 맡아 주셔서 감사합니다. 새로운 시작이라 설레기도 하고 조금 낯설기도 하지만, 선생님과 함께라면 즐겁고 의미 있는 한 해가 될 것 같습니다. 앞으로 선생님께 많이 배우고, 함께 좋은 추억도 많이 만들고 싶습니다. 부족한 점이 있더라도 잘 부탁드립니다! 올 한 해 잘 부탁드리고, 항상 감사하겠습니다.', wish:'[작년 담임선생님의 응답] "어머, 이렇게 연락 주다니 선생님이 더 기쁘고 감사하네요. 작년에 우리 반이었던 게 정말 행복했어요. 새 학기 시작했다니 벌써 시간이 이렇게 흘렀구나. 올해도 지난해처럼 밝고 긍정적인 모습으로 열심히 하는 거 알아요. 새로운 선생님, 새로운 친구들과도 즐겁게 지내고, 힘든 일 있으면 언제든 선생님한테 찾아와도 돼요. 항상 응원하고 있어요. 올 한 해도 화이팅!" [새 담임선생님의 응답] "안녕하세요! 이렇게 먼저 인사해주니 선생님도 반갑고 든든하네요. 새 학기 시작이라 서로 어색할 수 있지만, 우리 함께 천천히 알아가면서 좋은 한 해 만들어봐요. 선생님도 여러분과 함께하게 되어 기대가 크답니다. 힘들거나 어려운 일 있으면 언제든 얘기하고, 즐거운 일도 함께 나누면서 의미 있는 시간 보내요. 올 한 해 잘 부탁하고, 우리 모두 화이팅!"'},
  {id:38, cat:'self', theme:'t2', msg:'미래를 위해서, 현재를 위해서 내가 하는 일들이 의미가 있는지, 제대로 공부하는 건지 의심이 들고 힘들어도 이겨낼 수 있을거라 나는 내 자신을 응원해', wish:'나를 믿고 달려가자'},
  {id:39, cat:'self', theme:'t2', msg:'너는 진짜 잘하고 있고 열심히 살고 있어. 그러니깐 지금처럼 열심히 행복하게 살자. 불행한 일이 있어도 슬퍼하지 말고 재밌게 살자. 한 번 사는 인생 씩씩하게 화이팅!', wish:'너는 진짜 잘하고 있어'},
- {id:40, cat:'friend', theme:'t1', msg:'OO아, 너는 나를 항상 도와주는데 난 너를 짓궂게 놀렸던 것 같아 미안해', wish:'송OO에게 고마워하자'},
+ {id:40, cat:'friend', theme:'t1', msg:'OO아, 너는 나를 항상 도와주는데 난 너를 짓궂게 놀렸던 것 같아 미안해', wish:'OO에게 고마워하자'},
  {id:41, cat:'teacher', theme:'t4', msg:'선생님 두 달 동안 정말 이 반에 잘 적응한 것 같습니다. 정말 감사하고 앞으로도 잘 부탁 드려요.', wish:'넌 할 수 있어'},
  {id:42, cat:'friend', theme:'t1', msg:'평소에 놀려서 미안해 다른 친구들도 너를 놀리길래 나도 장난으로 놀린 건대 상처받았다면 정말로 미안해 엉엉 흑흑 흐규흐규', wish:'못해도 괜찮아 즐기자'},
  {id:43, cat:'friend', theme:'t3', msg:'OO아 너를 보면서 깨달은 점도 있지만 너도 배워야 할 점도 있는거 같아 우리 서로 최선을 다하자 화이팅!', wish:'넌 항상 잘하고 있어!앞으로도 화이팅!'},
@@ -236,7 +263,7 @@ const data = [
  {id:45, cat:'self', theme:'t2', msg:'요새 스트레스를 받아서 힘들었지만 이겨 낼 수 있다고 믿어 나는 항상 믿고 응원 해줄게', wish:'화이팅!'},
  {id:46, cat:'friend', theme:'t3', msg:'안녕 OO아 너의 꿈은 코레일의 취직하는거지? 너는 열차 지식과 정보가 매우 매우 풍부하니 잘될거야 응원해!', wish:'공부 잘해라'},
  {id:47, cat:'friend', theme:'t3', msg:'친구야, 내 학교생활을 즐겁게 만들어 줘서 정말 고마워. 사실 요새 학업도 있고 해야 될 일이 정말 많아서 집에 와도 놀 수 있는 시간이 없는데, 학교라는 공간을 공부만 하는 공간이 아니라 학우들과 즐겁게 시간을 보내고 좋은 추억을 만들 수 있게 만들어 줘서 정말 고마워. 이제 본격적으로 진로와 진학 문제에 대해 고민할 나이가 되어서 앞으로 갈수록 놀 수 있는 시간은 줄어들겠지만, 나중에 어른이 돼서 다시 만나서 즐겁게 놀자. 고마워 친구야.', wish:'넌 반드시 꿈을 이룰거야'},
- {id:48, cat:'self', theme:'t2', msg:'항상 지금까지의 노력을 위해 달려와서 고생했고 더 달려나가야 하니 그때까지 조금만 고생하자! 이것은 나뿐 아니고 부모님을 위해서 그러는 것 같다. 이번에 꼭 용산철도고에 가서 나의 꿈을 이루고 싶다. 나의 초등 시절들도 금방 지나간 것 같다. 6개월만 참아서 더 진로를 위해 노력하자. 할 수 있다 모든 것에 노력하고 성실하자!', wish:'힘내'},
+ {id:48, cat:'self', theme:'t2', msg:'항상 지금까지의 노력을 위해 달려와서 고생했고 더 달려나가야 하니 그때까지 조금만 고생하자! 이것은 나뿐 아니고 부모님을 위해서 그러는 것 같다. 이번에 꼭 OO고에 가서 나의 꿈을 이루고 싶다. 나의 초등 시절들도 금방 지나간 것 같다. 6개월만 참아서 더 진로를 위해 노력하자. 할 수 있다 모든 것에 노력하고 성실하자!', wish:'힘내'},
  {id:49, cat:'friend', theme:'t4', msg:'옛날부터 친했던 친구지만 지금까지 같이 지내면서 느낀 것은 오랜 시간 동안 함께하면서 서로한테 계속해서 잘해주면서 지금까지 사이를 같이 유지해 주는 게 고맙고 내가 힘들 때마다 위로해 주고 할 수 있다고 응원해 준 거 정말로 고맙다고 생각한다. 나도 계속 위로만 받는다고 생각해서 미안하다', wish:'없음'},
  {id:50, cat:'self', theme:'t2', msg:'지금의 노력은 분명 너를 더 멋진 사람으로 만들고 있어. 시험 점수보다 더 중요한 건 포기하지 않고 오늘도 한 걸음 나아가는 너의 마음이야. 힘들어도 끝까지 버틴다면, 미래의 너는 오늘의 너를 정말 자랑스러워할 거야. 우리 학교는 중간고사를 안 보니 기말고사에 더 화이팅 해보자.', wish:'너는 지금 최선을 다 하고있어'},
  {id:51, cat:'self', theme:'t2', msg:'너가 열심히 꿈을향해 나아가는 모습이 멋져 너의 미래를 위해 열심히 노력할게', wish:'잘했어'},
@@ -264,7 +291,7 @@ const data = [
  {id:73, cat:'friend', theme:'t3', msg:'안녕 OO아 반가워 나 OO이야 너한테 응원을 보내고 싶어서 이 편지를 쓰게되었어 너가 드럼을 칠때 기타를 칠때 정말 멋있고 재밌어보여 밴드부에서 고민이 좀 있어보이던데 나한테 말해봐 내가 들어줄게 나는 너가 할수있을거라 믿어 너가 음악을할때 얼마나 좋아하고 기뻐하는 지 알아 나는 너의 꿈을 응원할게! -OO이가-', wish:'화이팅'},
  {id:74, cat:'friend', theme:'t1', msg:'친구야 내가 너의 물건 훔쳐서 미안해 그리고 또 너를 때려서 미안해 앞으로 조심할게 미안하다 친구여', wish:'화이팅'},
  {id:75, cat:'teacher', theme:'t4', msg:'늘 유익한 수업해주셔서 감사합니다. 앞으로도 열심히 수업참여하고 친구들하고도 잘 어울리겠습니다. 항상 감사합니다.', wish:'좋았어'},
- {id:76, cat:'teacher', theme:'t4', msg:'항상 저희를 위해 노력하시고 애써주시는 선생님들! 정말 감사드리고 사랑합니다! 선생님들께서 계시기에 저희 광운인공지능 고등학교가 다니기 좋은 학교가 될 수 있습니다! 감사합니다!', wish:'화이팅'},
+ {id:76, cat:'teacher', theme:'t4', msg:'항상 저희를 위해 노력하시고 애써주시는 선생님들! 정말 감사드리고 사랑합니다! 선생님들께서 계시기에 저희 OO 고등학교가 다니기 좋은 학교가 될 수 있습니다! 감사합니다!', wish:'화이팅'},
  {id:77, cat:'self', theme:'t2', msg:'학교생활에 관심이 없어, 떨어지는 핑크빛의 벚꽃과 맴맴 거리는 매미와 쏴아아 내리는 장마의 비와 낙엽들이 싸그락싸그락 밟히는 소리와 차갑지만 몸에 닿으면 따스한 눈의 결정들에도 관심이 없던 나, 지금이라도 내 인생의 멋짐을 깨달아 고맙다. 늦었지만 지금부터라도 떨어지는 핑크빛의 벚꽃과 맴맴 거리는 매미와 쏴아아 내리는 장마의 비와 낙엽의 싸그락싸그락 밟히는 소리와 차갑지만 몸에 닿으면 따스한 눈의 결정들을 잔뜩 사랑하고 잔뜩 만끽했으면 좋겠다.', wish:'너는 너의 인생의 페이스메이커야. 너의 페이스대로 달리자.'},
  {id:78, cat:'friend', theme:'t3', msg:'OO야 너가 우리반을 항상 재밌게 해주는게 정말 고마워', wish:'화이팅해'},
  {id:79, cat:'friend', theme:'t1', msg:'전자융합과 3학년 2반 OO아 평소에내가 너한테 너무 막 대한것같아서 마음이 불편하구나 이제는 말도 이쁘게 해주고 매점도 자주 사줄게 그니까 너가 좀 더 노력해봐 사랑해 OO아', wish:'다 잘 될거야 걱정하지마'}
@@ -310,7 +337,7 @@ const bestList = BEST.map(b => {
   return base ? Object.assign({}, base, b) : null;
 }).filter(Boolean);
 
-let mode = bestList.length ? 'best' : 'target';
+let mode = 'target';
 let currentFilter = 'all';
 
 const grid = document.getElementById('grid');
@@ -321,10 +348,8 @@ const fieldOf = {target:'cat', theme:'theme'};
 
 /* ── 상단 요약 ── */
 function renderSummary(){
-  document.getElementById('heroSub').textContent = `${data.length}명의 학생이 전한 마음, 그리고 듣고 싶었던 한마디`;
+  document.getElementById('heroSub').textContent = `216명이 참여하고, ${data.length}명이 자신의 이야기를 나눠주었습니다`;
   document.getElementById('statTotal').textContent = data.length;
-  document.getElementById('statBest').textContent = bestList.length;
-  document.getElementById('statTarget').textContent = Object.keys(TARGET_LABEL).length;
 }
 
 function renderDonut(field, labels, colors, donutId, numId, legendId){
@@ -349,7 +374,7 @@ function renderDonut(field, labels, colors, donutId, numId, legendId){
 
 /* ── 필터 칩 ── */
 function renderFilters(){
-  if (mode === 'best'){ filtersEl.innerHTML = ''; currentFilter = 'all'; return; }
+  if (mode === 'best' || mode === 'random'){ filtersEl.innerHTML = ''; currentFilter = 'all'; return; }
   const labels = labelSets[mode];
   const field = fieldOf[mode];
   let html = `<button class="chip active" data-filter="all">전체 ${data.length}</button>`;
@@ -364,7 +389,7 @@ function renderFilters(){
 /* ── 카드 ── */
 function cardHtml(d, isBest){
   const wishHtml = d.wish && d.wish.trim()
-    ? `<div class="wish-wrap clampable"><span class="wish-label">내가 듣고 싶은 응원 메시지</span><p class="wish">${d.wish}</p></div>
+    ? `<div class="wish-wrap clampable"><span class="wish-label">내가 듣고 싶은 응원의 메시지</span><p class="wish">${d.wish}</p></div>
        <button class="more-btn wish-more" type="button" aria-expanded="false" hidden>더보기 <span class="arw">▾</span></button>`
     : '';
   const reasonHtml = isBest && d.reason ? `<p class="best-note">${d.reason}</p>` : '';
@@ -387,6 +412,40 @@ function cardHtml(d, isBest){
 
 function renderGrid(){
   grid.innerHTML = '';
+  grid.classList.remove('random-stage');
+
+  if (mode === 'random'){
+    grid.classList.add('random-stage');
+    countNote.textContent = `${data.length}개의 사연 중에서 한 개를 뽑아드려요`;
+    const btn = document.createElement('button');
+    btn.className = 'draw-btn';
+    btn.type = 'button';
+    btn.textContent = '🎲 사연 뽑기';
+    const slot = document.createElement('div');
+    slot.className = 'grid';
+    slot.style.display = 'grid';
+    grid.appendChild(btn);
+    grid.appendChild(slot);
+
+    let lastId = null;
+    const draw = () => {
+      let pick;
+      do { pick = data[Math.floor(Math.random() * data.length)]; }
+      while (data.length > 1 && pick.id === lastId);
+      lastId = pick.id;
+      slot.innerHTML = '';
+      const card = document.createElement('div');
+      card.className = 'card pop ' + pick.cat;
+      card.innerHTML = cardHtml(pick, false);
+      slot.appendChild(card);
+      btn.textContent = '🎲 다른 사연 뽑기';
+      applyClamp();
+    };
+    btn.addEventListener('click', draw);
+    draw();
+    return;
+  }
+
   const isBestMode = mode === 'best';
   const items = isBestMode
     ? bestList
@@ -414,13 +473,13 @@ function renderGrid(){
   applyClamp();
 }
 
-/* ── 사연은 4줄, 응원 한마디는 2줄까지만 보여주고 '더보기'로 펼치기 ── */
+/* ── 사연은 8줄, 응원 한마디는 3줄까지만 보여주고 '더보기'로 펼치기 ── */
 function applyClamp(){
   grid.querySelectorAll('.clampable').forEach(wrap => {
     const btn = wrap.nextElementSibling;
     if(!btn || !btn.classList.contains('more-btn') || wrap.dataset.expanded === 'true') return;
     wrap.classList.add('clamped');
-    const p = wrap.querySelector('p');
+    const p = wrap.querySelector('.msg, .wish');
     const overflows = p.scrollHeight > p.clientHeight + 2;
     if(overflows){
       btn.hidden = false;
