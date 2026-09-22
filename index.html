@@ -91,6 +91,7 @@
   .mode-btn[data-mode="target"].active, .mode-btn[data-mode="theme"].active{background:var(--rose); color:#fff; border-color:var(--rose);}
   .random-stage{display:flex; flex-direction:column; align-items:center; gap:18px; margin-bottom:8px;}
   .random-stage .grid{width:100%; max-width:560px;}
+  #grid.random-stage{display:flex; flex-direction:column; align-items:center; gap:18px; margin-bottom:8px;}
   .draw-btn{font-family:inherit; font-size:15px; font-weight:700; color:#fff; background:var(--rose); border:none; border-radius:999px; padding:13px 32px; cursor:pointer; box-shadow:0 3px 10px rgba(232,87,122,.28);}
   .draw-btn:hover{filter:brightness(1.05);}
   .draw-btn:active{transform:translateY(1px);}
@@ -198,8 +199,8 @@
 
   <p class="section-title rise" style="animation-delay:.3s;">💌 함께 나누고 싶은 따뜻한 고백</p>
   <div class="mode-toggle rise" style="animation-delay:.32s;">
-    <button class="mode-btn" data-mode="random">친구 사연 랜덤으로 보기</button>
     <button class="mode-btn" data-mode="all">전체 사연보기</button>
+    <button class="mode-btn" data-mode="random">친구 사연 랜덤보기</button>
     <button class="mode-btn" data-mode="target">대상자별로 보기</button>
     <button class="mode-btn" data-mode="theme">주제별로 보기</button>
   </div>
@@ -340,7 +341,7 @@ const bestList = BEST.map(b => {
   return base ? Object.assign({}, base, b) : null;
 }).filter(Boolean);
 
-let mode = 'target';
+let mode = 'all';
 let currentFilter = 'all';
 
 const grid = document.getElementById('grid');
