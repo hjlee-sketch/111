@@ -51,11 +51,12 @@
   h1{font-family:'Jua', 'Gowun Batang', serif; font-weight:400; font-size:40px; margin:0 0 12px; color:var(--ink); letter-spacing:-0.01em; line-height:1.3;}
   h1 .title-accent{color:var(--rose);}
   header.hero p{color:var(--ink-soft); font-size:15px; margin:0 0 18px;}
+  .hero-sub-note{text-align:center; color:var(--ink-soft); font-size:13.5px; margin:0 0 44px;}
 
   .rule{width:120px; height:1px; margin:0 auto 40px; background:linear-gradient(90deg, transparent, var(--rose-line) 20%, var(--rose-line) 80%, transparent); position:relative;}
   .rule::after{content:"♡"; position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:var(--paper); padding:0 10px; color:var(--rose); font-size:13px;}
 
-  .stats{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:0 0 44px; max-width:560px; margin-left:auto; margin-right:auto;}
+  .stats{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:0 0 10px; max-width:560px; margin-left:auto; margin-right:auto;}
   .stat{background:var(--paper-card); border:1px solid var(--line); border-radius:14px; padding:16px 10px; text-align:center;}
   .stat .num{font-family:'Jua', sans-serif; font-size:28px; color:var(--ink);}
   .stat .label{font-size:12.5px; color:var(--ink-soft); margin-top:2px;}
@@ -66,27 +67,28 @@
 
   .donut-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin:0 auto 48px; max-width:720px;}
   .donut-card{background:var(--paper-card); border:1px solid var(--line); border-radius:18px; padding:24px 20px 20px; text-align:center;}
-  .donut-card h3{font-family:'Jua', sans-serif; font-weight:400; font-size:16px; margin:0 0 18px; color:var(--ink);}
+  .donut-card h3{font-family:'Jua', sans-serif; font-weight:400; font-size:18px; margin:0 0 18px; color:var(--ink);}
   .donut{width:168px; height:168px; border-radius:50%; margin:0 auto 18px; position:relative;}
   .donut::after{content:""; position:absolute; inset:26px; background:var(--paper-card); border-radius:50%;}
   .donut-center{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;}
   .donut-center .num{font-family:'Jua', sans-serif; font-size:27px; color:var(--rose);}
   .donut-center .lbl{font-size:10.5px; color:var(--ink-soft); margin-top:2px;}
   .legend{display:flex; flex-direction:column; gap:7px; text-align:left;}
-  .legend-row{display:flex; align-items:center; gap:5px; font-size:12.5px; color:var(--ink-soft);}
+  .legend-row{display:flex; align-items:center; gap:5px; font-size:14.5px; color:var(--ink-soft);}
   .legend-row .legend-dot{margin-right:3px;}
   .legend-dot{width:9px; height:9px; border-radius:50%; flex-shrink:0;}
   .legend-row .cnt{color:var(--ink); font-weight:500;}
   .legend-row .lv{margin-left:auto; color:var(--ink-soft); font-variant-numeric:tabular-nums;}
 
   .mode-toggle{display:flex; justify-content:center; gap:8px; margin:8px 0 18px; flex-wrap:wrap;}
-  .mode-btn{font-size:14px; font-weight:500; padding:9px 20px; border-radius:999px; border:1px solid var(--line); background:var(--paper-card); color:var(--ink-soft); cursor:pointer; font-family:inherit;}
+  .mode-btn{font-size:14px; font-weight:500; padding:9px 20px; border-radius:999px; border:1px solid transparent; background:transparent; color:var(--ink-soft); cursor:pointer; font-family:inherit;}
+  .mode-btn:hover{color:var(--ink);}
   .mode-btn:focus-visible, .chip:focus-visible{outline:2px solid var(--rose); outline-offset:2px;}
-  .mode-btn.active{background:var(--rose); color:#fff; border-color:var(--rose);}
-  .mode-btn[data-mode="best"]{border-color:var(--best-line); color:var(--best); background:var(--best-bg);}
-  .mode-btn[data-mode="best"].active{background:var(--best); color:#fff; border-color:var(--best);}
-  .mode-btn[data-mode="random"]{border-color:var(--rose); color:var(--rose); background:#fff;}
-  .mode-btn[data-mode="random"].active{background:var(--rose); color:#fff; border-color:var(--rose);}
+  .mode-btn[data-mode="random"], .mode-btn[data-mode="all"]{border-color:var(--rose); color:var(--rose); background:#fff;}
+  .mode-btn[data-mode="random"].active, .mode-btn[data-mode="all"].active{background:var(--rose); color:#fff; border-color:var(--rose);}
+  .mode-btn[data-mode="target"], .mode-btn[data-mode="theme"]{border-color:var(--line); color:var(--ink-soft); background:var(--paper-card);}
+  .mode-btn[data-mode="target"]:hover, .mode-btn[data-mode="theme"]:hover{border-color:var(--rose-line); color:var(--rose-ink);}
+  .mode-btn[data-mode="target"].active, .mode-btn[data-mode="theme"].active{background:var(--rose); color:#fff; border-color:var(--rose);}
   .random-stage{display:flex; flex-direction:column; align-items:center; gap:18px; margin-bottom:8px;}
   .random-stage .grid{width:100%; max-width:560px;}
   .draw-btn{font-family:inherit; font-size:15px; font-weight:700; color:#fff; background:var(--rose); border:none; border-radius:999px; padding:13px 32px; cursor:pointer; box-shadow:0 3px 10px rgba(232,87,122,.28);}
@@ -163,8 +165,7 @@
 
   <header class="hero rise">
     <span class="eyebrow">학교폭력제로@광운</span>
-    <h1>BTF푸른나무재단 함께하는 <span class="title-accent">'따뜻한 고백'</span> 캠페인</h1>
-    <p id="heroSub"></p>
+    <h1>BTF푸른나무재단과 함께하는<br><span class="title-accent">'따뜻한 고백'</span> 캠페인</h1>
   </header>
   <div class="rule rise" style="animation-delay:.05s;"></div>
 
@@ -172,6 +173,7 @@
     <div class="stat"><div class="num">216</div><div class="label">캠페인 참여</div></div>
     <div class="stat"><div class="num" id="statTotal">–</div><div class="label">사연 공유 동의</div></div>
   </div>
+  <p id="heroSub" class="hero-sub-note"></p>
 
   <p class="section-title rise" style="animation-delay:.1s;">🎀 캠페인 결과 한눈에 보기</p>
   <div class="donut-grid">
@@ -197,6 +199,7 @@
   <p class="section-title rise" style="animation-delay:.3s;">💌 함께 나누고 싶은 따뜻한 고백</p>
   <div class="mode-toggle rise" style="animation-delay:.32s;">
     <button class="mode-btn" data-mode="random">친구 사연 랜덤으로 보기</button>
+    <button class="mode-btn" data-mode="all">전체 사연보기</button>
     <button class="mode-btn" data-mode="target">대상자별로 보기</button>
     <button class="mode-btn" data-mode="theme">주제별로 보기</button>
   </div>
@@ -374,10 +377,10 @@ function renderDonut(field, labels, colors, donutId, numId, legendId){
 
 /* ── 필터 칩 ── */
 function renderFilters(){
-  if (mode === 'best' || mode === 'random'){ filtersEl.innerHTML = ''; currentFilter = 'all'; return; }
+  if (mode === 'best' || mode === 'random' || mode === 'all'){ filtersEl.innerHTML = ''; currentFilter = 'all'; return; }
   const labels = labelSets[mode];
   const field = fieldOf[mode];
-  let html = `<button class="chip active" data-filter="all">전체 ${data.length}</button>`;
+  let html = '';
   Object.keys(labels).forEach(k => {
     const count = data.filter(d => d[field] === k).length;
     html += `<button class="chip" data-filter="${k}">${labels[k]} ${count}</button>`;
